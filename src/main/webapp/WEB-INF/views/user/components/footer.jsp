@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="container">
-	<div class="row col-sm-12">
-	<div class="col-sm-2">
+	<div class="row">
+	
+	<div class="col-6 col-md-2">
 		<h5>Services</h5>
 		<ul class="nav flex-column">
 			<li class="nav-item">
@@ -13,7 +14,7 @@
 			<li class="nav-item"><a href="#">FAQ's</a></li>
 		</ul>
 	</div>
-	<div class="col-sm-2">
+	<div class="col-6 col-md-2">
 		<h5>Shop</h5>
 		<ul class="nav flex-column">
 			<li class="nav-item"><a href="#">T-Shirt</a></li>
@@ -23,7 +24,7 @@
 			<li class="nav-item"><a href="#">Shoes</a></li>
 		</ul>
 	</div>
-	<div class="col-sm-2">
+	<div class="col-6 col-md-2">
 		<h5>Policies</h5>
 		<ul class="nav flex-column">
 			<li class="nav-item"><a href="#">Term of Use</a></li>
@@ -33,7 +34,7 @@
 			<li class="nav-item"><a href="#">Ticket System</a></li>
 		</ul>
 	</div>
-	<div class="col-sm-2">
+	<div class="col-6 col-md-2">
 		<h5>About Us</h5>
 		<ul class="nav flex-column">
 			<li class="nav-item"><a href="#">Shop Information</a></li>
@@ -43,7 +44,7 @@
 			<li class="nav-item"><a href="#">Copyright</a></li>
 		</ul>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-12 col-md-4">
 		<h5>Get More Information</h5>
 		<form action="#">
 			<div class="input-group mb-3">

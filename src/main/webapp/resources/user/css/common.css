@@ -1,4 +1,37 @@
 
-body{
-	border: 1px solid red;
+/* carousel */
+div.carousel ul.carousel-indicators li {
+	background: #fe980f;
+	border : 1px;
+	width:10px;
+	height:10px;
+	border-radius: 100%;
 }
+
+div.carousel a.carousel-control:hover i.fa {
+	color: #fe980f;
+}
+
+div.carousel a.carousel-control i.fa {
+	color : #C2C2C1;
+	font-size: 2.5rem;
+}
+
+/* label text */
+div.container div.row h3.label-text{
+	color: #FE980F;
+}
+
+/* product card */
+.content-items .card{
+	margin-bottom: 1rem;
+}
+
+/* footer */
+footer {
+	margin-top: 2rem;
+	padding-top: 2rem; 
+	padding-bottom: 3rem; 
+	background: #F0F0E9;
+}
+

@@ -1,0 +1,20 @@
+ul.navbar-nav {
+	margin-left: 1rem;
+}
+
+ul.navbar-nav > li.nav-item {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+ul.navbar-nav > li.cart {
+	position: relative;
+}
+
+ul.navbar-nav span.badge {
+	position: absolute;
+    top: 0;
+    right: 2px;
+    border-radius: 100%;
+    font-size: 12px;
+}

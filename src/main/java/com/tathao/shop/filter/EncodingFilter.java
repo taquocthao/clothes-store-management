@@ -1,3 +1,6 @@
+/**
+ * @author taquocthao
+ */
 package com.tathao.shop.filter;
 
 import java.io.IOException;
@@ -27,7 +30,7 @@ public class EncodingFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		
+		// do nothing
 	}
 
 }

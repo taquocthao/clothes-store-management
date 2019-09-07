@@ -1,41 +1,29 @@
 package com.tathao.shop.bean;
 
 public class Product {
-	private int id;
-	private int categoryId;
+	private String id;
+	private int productParentsId;
 	private String name;
 	private double price;
 	private String image;
 	private String description;
 	
-	public Product(int id, int categoryId, String name, double price, String image, String description) {
+	public Product(String id, int productParentsId, String name, double price, String image, String description) {
 		super();
 		this.id = id;
-		this.categoryId = categoryId;
+		this.productParentsId = productParentsId;
 		this.name = name;
-		this.price = price;
 		this.image = image;
+		this.price = price;
 		this.description = description;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
-	}
-
-	public int getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getName() {
-		return name;
 	}
 
 	public void setName(String name) {
@@ -64,6 +52,27 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the productParentsId
+	 */
+	public int getProductParentsId() {
+		return productParentsId;
+	}
+
+	/**
+	 * @param productParentsId the productParentsId to set
+	 */
+	public void setProductParentsId(int productParentsId) {
+		this.productParentsId = productParentsId;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
 	}
 
 }

@@ -7,7 +7,7 @@
 			}
 		});
 		navbarWidth = $(document).width();
-		if(navbarWidth < 767){
+		if(navbarWidth < 768){
 			$("ul.justify-content-end").addClass("navbar-collapse collapse");
 		}
 		$("button.navbar-toggler").click(function(){

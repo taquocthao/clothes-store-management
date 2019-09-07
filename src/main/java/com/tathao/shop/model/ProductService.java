@@ -1,15 +1,14 @@
 package com.tathao.shop.model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.tathao.shop.bean.Product;
 import com.tathao.shop.interfaces.IProduct;
-import com.tathao.shop.utils.Constant;
 import com.tathao.shop.utils.DataProvider;
 
 public class ProductService implements IProduct {
@@ -26,23 +25,31 @@ public class ProductService implements IProduct {
 	}
 	
 	@Override
-	public List<Product> getProducts() {
-		String sql = Constant.Data.Product.SQL_SELECT_PRODUCTS;
+	public List<Product> getProducts(int productParentsId, int start, int limit) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * ");
+		sql.append("FROM product ");
+		sql.append("WHERE productParentsId = ? ");
+		sql.append("LIMIT ?, ?");
 		try {
-			Statement stament = this.connect.createStatement();
-			ResultSet result = stament.executeQuery(sql);
+			PreparedStatement ptm = this.connect.prepareStatement(sql.toString());
+			ptm.setInt(1, productParentsId);
+			ptm.setInt(2, start);
+			ptm.setInt(3, limit);
+			
+			ResultSet result = ptm.executeQuery();
 			List<Product> listProducts = new ArrayList<Product>();
 			
 			while(result.next()) {
-				int id = result.getInt(1);
-				int categoryId = result.getInt(2);
+				String id = result.getString(1);
+				int productParentId = result.getInt(2);
 				String name = result.getString(3);
 				double price = result.getDouble(4);
 				String image = result.getString(5);
 				String description = result.getString(6);
-				listProducts.add(new Product(id, categoryId, name, price, image, description));
+				listProducts.add(new Product(id, productParentId, name, price, image, description));
 			}
-			return listProducts;	
+			return listProducts;
 		} catch (SQLException e) {
 			System.out.println("Get products has been error at : " + e.getMessage());
 			return null;
@@ -50,33 +57,58 @@ public class ProductService implements IProduct {
 	}
 
 	@Override
-	public Product getProductById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Product getProductById(int productId) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("select * " );
+		sql.append("from product "); 
+		sql.append("where id = ?");
+		Product product = null;
+		try {
+			PreparedStatement ptm = this.connect.prepareStatement(sql.toString());
+			ptm.setInt(1, productId);
+			ResultSet result = ptm.executeQuery();
+			while(result.next()) {
+				String id = result.getString(1);
+				int productParentId = result.getInt(2);
+				String name = result.getString(3);
+				double price = result.getDouble(4);
+				String image = result.getString(5);
+				String description = result.getString(6);
+				product = new Product(id, productParentId, name, price, image, description);
+			}
+		} catch (SQLException e) {
+			System.out.println("Get product by id has been error at : " + e.getMessage());
+			e.printStackTrace();
+		}
+		return product;
 	}
 
-	@Override
-	public List<Product> getProductsByCategory(int categoryId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+public int getSize(int productParentsId) {
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT COUNT(*) ");
+		sql.append("FROM product ");
+		sql.append("WHERE productParentsId = ? ");
+		
+		PreparedStatement ptm;
+		
+		int numberOfRows = 0;
+		try {
+			ptm = this.connect.prepareStatement(sql.toString());
+			ptm.setInt(1, productParentsId);
+			ResultSet rs = ptm.executeQuery();
+			while(rs.next()) {
+				numberOfRows = rs.getInt(1);
+				return numberOfRows;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return numberOfRows;
 	}
 
-	@Override
-	public boolean addProduct(Product product) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deleteProduct(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

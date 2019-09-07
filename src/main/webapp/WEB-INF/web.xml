@@ -5,8 +5,8 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
-  <!-- filter -->
-  <filter>
+    <!-- filter -->
+ 	<filter>
   	<filter-name>encodingFilter</filter-name>
   	<filter-class>com.tathao.shop.filter.EncodingFilter</filter-class>
   </filter>
@@ -20,11 +20,52 @@
   <servlet>
   	<servlet-name>homePage</servlet-name>
   	<servlet-class>com.tathao.shop.controller.HomeController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
   </servlet>
-  
+  <servlet>
+  	<servlet-name>MenProductController</servlet-name>
+  	<servlet-class>com.tathao.shop.controller.MenProductController</servlet-class>
+  	<load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>WomanProductController</servlet-name>
+  	<servlet-class>com.tathao.shop.controller.WomanProductController</servlet-class>
+  	<load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProductDetailsController</servlet-name>
+  	<servlet-class>com.tathao.shop.controller.ProductDetailsController</servlet-class>
+  	<load-on-startup>4</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>CartController</servlet-name>
+  	<display-name>CartController</display-name>
+  	<description></description>
+  	<servlet-class>com.tathao.shop.controller.CartController</servlet-class>
+  </servlet>
+ 
   <!-- servlet mapping -->
   <servlet-mapping>
   	<servlet-name>homePage</servlet-name>
   	<url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MenProductController</servlet-name>
+  	<url-pattern>/nam/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WomanProductController</servlet-name>
+  	<url-pattern>/nu/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductDetailsController</servlet-name>
+  	<url-pattern>/san-pham</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CartController</servlet-name>
+  	<url-pattern>/cart</url-pattern>
+  </servlet-mapping>
+  
+  
+  
 </web-app>

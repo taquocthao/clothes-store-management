@@ -19,20 +19,28 @@ public class HomeController extends HttpServlet {
 	private ProductService productService;
 	
 	public HomeController() {
+		
 		productService = new ProductService();
+		
 	}
-	
+	/**
+	 * @author taquocthao
+	 * @param 
+	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Product> products = productService.getProducts();
+		
+		List<Product> products = productService.getProducts(1, 0, 12);
 		request.setAttribute("products", products);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/user/homePage.jsp");
 		dispatcher.forward(request, response);
+		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doGet(request, response);
 	}
 	
 }

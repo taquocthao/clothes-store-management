@@ -20,34 +20,48 @@
 <!-- font awesome -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- style navigation bar -->
-<link rel="stylesheet" href="./resources/user/css/navbar.css" />
+<!-- common style -->
+<link rel="stylesheet" href='<c:url value="resources/user/css/common.css" ></c:url>' />
+<link rel="stylesheet" href='<c:url value="resources/user/css/navigationbar.css"></c:url>' />
 </head>
 <body>
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
 		<jsp:include page="./components/navigationBar.jsp"></jsp:include>
 	</nav>
-	<div class="container" style="margin-top: 30px;">
-		<div class="row body">
+	<section id="slider" style="margin-top: 1.75rem">
+		<div class="container">
 			<div class="row">
 				<jsp:include page="./components/carousel.jsp"></jsp:include>
 			</div>
-			<div class="row col-sm-12" style="margin-top: 30px;">
-				<div class="col-sm-3 left-sidebar">
+		</div>
+	</section>
+	<section id="body" style="margin-top: 1.75rem">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-md-3" style="margin-bottom: 1.5rem">
 					<jsp:include page="./components/sidebar.jsp"></jsp:include>
 				</div>
-				<div class="col-sm-9 right-side">
-					<jsp:include page="./components/content.jsp"></jsp:include>
+				<div class="col-sm-8 col-md-9">				
+					<!-- content view -->
+					
+						<div class="content-items">
+							<jsp:include page="./components/content.jsp"></jsp:include>
+						</div>
+
+					<!-- pagination -->
+					<div class="pagination justify-content-center">
+						<jsp:include page="./components/pagination.jsp"></jsp:include>
+					</div> 
 				</div>
 			</div>
 		</div>
-		
-	</div>
-	<div class="footer">
+	</section>
+	<footer>
 		<jsp:include page="./components/footer.jsp"></jsp:include>
-	</div>
+	</footer>
 	
 	<!-- script navigation bar -->
 	<script src="./resources/user/js/navigationBar.js"></script>
+	
 </body>
 </html>
